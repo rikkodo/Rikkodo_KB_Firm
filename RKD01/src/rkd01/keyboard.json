@@ -43,8 +43,8 @@
     "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0xE814",
-        "vid": "0x0001"
+        "pid": "0x0001",
+        "vid": "0xE814"
     },
     "layouts": {
         "LAYOUT": {
