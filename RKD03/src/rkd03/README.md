@@ -10,6 +10,10 @@ NANANA [Zenn オリジナルDIYキーボードでQMK firmwareを使ってロー�
 
 NANANA [Zenn オリジナルDIYキーボードでQMK firmwareを使ってロータリーエンコーダとNeoPixelを制御する方法](https://zenn.dev/nananauno/articles/bc258f7375604a#rules.mk-1)
 
+五月雨 [note ファームウェアをvial化した話](https://note.com/sam1dare/n/n816ce95fb2f2)
+
+五月雨 [note ロータリーエンコーダーを搭載してみた話](https://note.com/sam1dare/n/n24d04427d4c3)
+
 ## usage
 
 デフォルト
