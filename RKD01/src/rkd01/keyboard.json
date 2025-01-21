@@ -36,9 +36,8 @@
         "enabled": true,
         "soft_serial_pin": "D0",
         "transport": {
-            "protocol": "i2c"
-        },
-        "encoder": {}
+            "protocol": "serial"
+        }
     },
     "url": "",
     "usb": {
