@@ -14,6 +14,8 @@ NANANA [Zenn オリジナルDIYキーボードでQMK firmwareを使ってロー�
 
 五月雨 [note ロータリーエンコーダーを搭載してみた話](https://note.com/sam1dare/n/n24d04427d4c3)
 
+74th [github stickpoint-firmware](https://github.com/74th/stickpoint-firmware)
+
 ## usage
 
 デフォルト
@@ -25,3 +27,7 @@ qmk compile -kb rkd03 -km default
 ```
 
 BOOTSELを押しながらRaspberry pi picoをPCに接続。uf2ファイルをストレージデバイスにコピー。
+
+## az1uball
+
+74thさんの stickpoint-firmwareの使い方にしたがって設定することで動作した。
