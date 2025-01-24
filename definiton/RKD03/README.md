@@ -24,8 +24,7 @@ swanmatch [github qmk_firmware](https://github.com/swanmatch/qmk_firmware) OLEDã
 
 ```sh
 cd <path_to_qmk_firmware>/keyboard
-ln -s <path_to_repo>/common/lib
-ln -s <path_to_repo>/RKD03/src/rkd03
+ln -s <path_to_repo>/src rkd
 qmk compile -kb rkd03 -km default
 ```
 

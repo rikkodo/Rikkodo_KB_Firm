@@ -18,7 +18,7 @@ ymkn [Zenn QMK Firmwareで自作キーボードのファームウェアをイチ
 
 ```sh
 cd <path_to_qmk_firmware>/keyboard
-ln -s <path_to_repo>/RKD01/src/rkd01
+ln -s <path_to_repo>/src rkd
 qmk compile -kb rkd01 -km default
 qmk flash -kb rkd01 -km default
 ```
