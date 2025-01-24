@@ -3,3 +3,5 @@ POINTING_DEVICE_ENABLE = yes
 I2C_DRIVER_REQUIRED = yes
 POINTING_DEVICE_DRIVER = pimoroni_trackball
 OLED_ENABLE = yes
+# Additional source libraries
+SRC += lib/oled/rkd_oled.c
