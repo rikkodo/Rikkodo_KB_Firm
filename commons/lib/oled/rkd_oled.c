@@ -19,7 +19,8 @@ bool oled_led_stat(void)
         rgblight_config_bak.mode != rgblight_config.mode ||
         rgblight_config_bak.hue != rgblight_config.hue ||
         rgblight_config_bak.sat != rgblight_config.sat ||
-        rgblight_config_bak.val != rgblight_config.val)
+        rgblight_config_bak.val != rgblight_config.val ||
+        rgblight_config_bak.speed != rgblight_config.speed)
     {
         snprintf(led_buf, sizeof(led_buf) - 1, "Hue:%3d Sat:%3d\nVal:%3d Spd:%3d",
                  rgblight_config.hue,
