@@ -73,7 +73,7 @@
         "saturation_steps": 4,
         "brightness_steps": 8,
         "sleep": false,
-        "max_brightness": 250
+        "max_brightness": 255
     },
     "ws2812": {
         "pin": "GP0",
