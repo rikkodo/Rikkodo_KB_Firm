@@ -1,8 +1,5 @@
 #pragma once
-// OLED関係
-
-// Hello Worldのレンダリング
-bool oled_hello_world(void);
+// LED_OLED関係
 
 // ledStatusのレンダリング
 bool oled_led_stat(void);

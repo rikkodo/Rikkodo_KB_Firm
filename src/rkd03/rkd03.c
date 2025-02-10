@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-#include "lib/oled/rkd_oled.h"
+#include "lib/led/rkd_led_oled.h"
 
 /******************************************************************************
  * OLED
