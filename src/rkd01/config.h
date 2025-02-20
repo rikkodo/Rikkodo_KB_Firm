@@ -1,3 +1,6 @@
 #pragma once
 
 #define SPLIT_HAND_PIN D2
+#define PIMORONI_TRACKBALL_ADDRESS 0x0A
+#define F_SCL 100000
+#define PIMORONI_TRACKBALL_SCALE 5
