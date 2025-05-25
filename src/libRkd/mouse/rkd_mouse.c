@@ -41,14 +41,24 @@ void libMouseSetMouseFunctions(const MouseFunctions *mouseFunc)
 static double _mouseFuncGetTheta(void)
 {
     return libMouseUtilDegreeToRad(
-        _mouseFunctions.getThetaDegree ? _mouseFunctions.getThetaDegree() : (MOUSE_DEFAULT_THETA));
+#ifndef MOUSE_FIXED_THETA
+        _mouseFunctions.getThetaDegree ? _mouseFunctions.getThetaDegree() : (MOUSE_DEFAULT_THETA)
+#else
+        MOUSE_FIXED_THETA
+#endif
+    );
 }
 
 /** 回転角Phy(rad)を取得する */
 static double _mouseFuncGetPhy(void)
 {
     return libMouseUtilDegreeToRad(
-        _mouseFunctions.getPhyDegree ? _mouseFunctions.getPhyDegree() : (MOUSE_DEFAULT_PHY));
+#ifndef MOUSE_FIXED_PHY
+        _mouseFunctions.getPhyDegree ? _mouseFunctions.getPhyDegree() : (MOUSE_DEFAULT_PHY)
+#else
+        MOUSE_FIXED_PHY
+#endif
+    );
 }
 
 /** CPIを取得する */
@@ -67,8 +77,9 @@ static unsigned int _mouseFuncGetCpi(void)
 }
 
 /** スクロール速度調整係数を取得する */
-static unsigned int _mouseFuncGetScrDvi(void)
+static int _mouseFuncGetScrDvi(void)
 {
+#ifndef MOUSE_FIXED_SCRDIV
     unsigned int scrdiv = _mouseFunctions.getScrDiv ? _mouseFunctions.getScrDiv() : MOUSE_DEFAULT_SCRDIV;
     if (scrdiv < MOUSE_DEFAULT_MIN_SCRDIV)
     {
@@ -79,30 +90,57 @@ static unsigned int _mouseFuncGetScrDvi(void)
         scrdiv = MOUSE_DEFAULT_MAX_SCRDIV;
     }
     return scrdiv;
+#else
+    return MOUSE_FIXED_SCRDIV;
+#endif
 }
 
 /** X方向反転有無を取得する */
 static bool _mouseFuncIsXInvert(void)
 {
-    return _mouseFunctions.isXInvert ? _mouseFunctions.isXInvert() : MOUSE_DEFAULT_X_INVERT;
+    return
+#ifndef MOUSE_FIXED_INVERT_X
+        _mouseFunctions.isXInvert ? _mouseFunctions.isXInvert() : MOUSE_DEFAULT_X_INVERT
+#else
+        MOUSE_FIXED_INVERT_X
+#endif
+        ;
 }
 
 /** スクロール反転モードか否かを取得する */
 static bool _mouseFUncIsScrInvert(void)
 {
-    return _mouseFunctions.isScrInvert ? _mouseFunctions.isScrInvert() : MOUSE_DEFAULT_SCRINV;
+    return
+#ifndef MOUSE_FIXED_INVERT_SCROLL
+        _mouseFunctions.isScrInvert ? _mouseFunctions.isScrInvert() : MOUSE_DEFAULT_SCRINV
+#else
+        MOUSE_FIXED_INVERT_SCROLL
+#endif
+        ;
 }
 
 /** スクロールモードか否かを取得する */
 static bool _mouseFuncIsOnScroll(void)
 {
-    return _mouseFunctions.isOnScroll ? _mouseFunctions.isOnScroll() : MOUSE_DEFAULT_SCROLL;
+    return
+#ifdef MOUSE_FIXED_SCROLL_LAYER
+        IS_LAYER_ON(MOUSE_FIXED_SCROLL_LAYER)
+#else
+        _mouseFunctions.isOnScroll ? _mouseFunctions.isOnScroll() : MOUSE_DEFAULT_SCROLL
+#endif
+            ;
 }
 
 /** 直行スクロールか否かを判定する */
 static bool _mouseFuncIsOrthScroll(void)
 {
-    return _mouseFunctions.isOrthoScroll ? _mouseFunctions.isOrthoScroll() : MOUSE_DEFAULT_ORTHO_SCROLL;
+    return
+#ifndef MOUSE_FIXED_ORTH_SCROLL
+        _mouseFunctions.isOrthoScroll ? _mouseFunctions.isOrthoScroll() : MOUSE_DEFAULT_ORTHO_SCROLL
+#else
+        MOUSE_FIXED_ORTH_SCROLL
+#endif
+        ;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -124,10 +162,10 @@ double libMouseUtilDegreeToRad(unsigned int degree)
 ////////////////////////////////////////////////////////////////////////////////
 // マウスイベントHook
 ////////////////////////////////////////////////////////////////////////////////
-report_mouse_t pointing_device_task_user(report_mouse_t mouse_report)
+report_mouse_t rkd_pointing_device_task_user(report_mouse_t mouse_report)
 {
-    static uint16_t _scr_accm_h = 0;
-    static uint16_t _scr_accm_v = 0;
+    static int16_t _scr_accm_h = 0;
+    static int16_t _scr_accm_v = 0;
     double theta = _mouseFuncGetTheta();
     double phi = _mouseFuncGetPhy();
     int8_t x_rev = +mouse_report.x * cos(theta) + mouse_report.y * cos(phi);
@@ -139,7 +177,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report)
     }
     if (_mouseFuncIsOnScroll())
     {
-        unsigned int scr_div = _mouseFuncGetScrDvi();
+        int scr_div = _mouseFuncGetScrDvi();
         if (_mouseFuncIsOrthScroll())
         {
             if (abs(x_rev) > abs(y_rev))
@@ -176,4 +214,9 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report)
         mouse_report.y = y_rev;
     }
     return mouse_report;
+}
+
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report)
+{
+    return rkd_pointing_device_task_user(mouse_report);
 }

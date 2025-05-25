@@ -9,15 +9,17 @@
 typedef struct MouseFunctions
 {
     /** 回転角ThetaをDegreeで取得する */
+    // MOUSE_FIXED_THETA を指定することで固定値を設定できる
     unsigned int (*getThetaDegree)(void);
-    /** 回転角ThetaをDegreeで取得する */
+    /** 回転角PhyをDegreeで取得する */
+    // MOUSE_FIXED_PHY を指定することで固定値を設定できる
     unsigned int (*getPhyDegree)(void);
 
     /** CPIを取得する */
     unsigned int (*getCpi)(void);
 
     /** スクロール速度調整係数(大きいほどスクロールがゆっくりになる)を取得する */
-    unsigned int (*getScrDiv)(void);
+    int (*getScrDiv)(void);
 
     /** X座標反転モードか否かを取得する */
     bool (*isXInvert)(void);
@@ -57,3 +59,11 @@ void libMouseUpdateCpi(void);
  * @return double radian.
  */
 double libMouseUtilDegreeToRad(int unsigned degree);
+
+/**
+ * @brief マウスイベントを消化する
+ *
+ * @param mouse_report
+ * @return converted mouse report
+ */
+report_mouse_t rkd_pointing_device_task_user(report_mouse_t mouse_report);
