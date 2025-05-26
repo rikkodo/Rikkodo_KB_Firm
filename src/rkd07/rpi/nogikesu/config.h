@@ -1,13 +1,12 @@
 #pragma once
 
-#define PAW3222_CS_FIX_GND
+/* NOGIKESU TB 用定義 */
 
+#define PAW3222_CS_FIX_GND
 #define PAW3222_SCLK_PIN GP0
 #define PAW3222_SDIO_PIN GP1
 
-#define I2C1_SCL_PIN GP19
-#define I2C1_SDA_PIN GP18
-#define I2C_DRIVER I2CD1
-
-#define RKD_USE_DEFAULT_CUSTOM_KEYS
-#define RKD_USE_DEFAULT_CUSTOM_MOUSE
+// TODO
+// #define MOUSE_FIXED_THETA (90)
+// #define MOUSE_FIXED_PHY (180)
+// #define MOUSE_FIXED_SCRDIV (60)

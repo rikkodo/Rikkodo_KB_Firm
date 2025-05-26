@@ -5,3 +5,4 @@ OLED_ENABLE = yes
 # Additional source libraries
 SRC += libRkd/mouse/rkd_mouse.c
 SRC += libRkd/keys/rkd_custom_keys.c
+SRC += libRkd/oled/rkd_oled.c

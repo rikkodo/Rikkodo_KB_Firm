@@ -1,11 +1,8 @@
 #pragma once
 
+// PIMORONI用定義
+// TODO StickPointとAZ1Uballで分けるかもしれない
+
 #define PIMORONI_TRACKBALL_ADDRESS 0x0A
-#define I2C1_SCL_PIN GP19
-#define I2C1_SDA_PIN GP18
-#define I2C_DRIVER I2CD1
 #define F_SCL 100000
 #define PIMORONI_TRACKBALL_SCALE 5
-
-#define RKD_USE_DEFAULT_CUSTOM_KEYS
-#define RKD_USE_DEFAULT_CUSTOM_MOUSE
