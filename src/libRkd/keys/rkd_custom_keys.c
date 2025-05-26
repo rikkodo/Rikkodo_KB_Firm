@@ -36,7 +36,7 @@ bool rkd_process_record_user(uint16_t keycode, keyrecord_t *record)
         switch (keycode)
         {
         case TWO_AT:
-            process_fake_keys(KC_2, false, KC_RBRC, false, record);
+            process_fake_keys(KC_2, false, KC_LBRC, false, record);
             return false;
         case SIX_HAT:
             process_fake_keys(KC_6, false, KC_EQL, false, record);
