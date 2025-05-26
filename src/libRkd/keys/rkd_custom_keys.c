@@ -76,7 +76,9 @@ bool rkd_process_record_user(uint16_t keycode, keyrecord_t *record)
     return true;
 }
 
+#ifdef RKD_USE_DEFAULT_CUSTOM_KEYS
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     return rkd_process_record_user(keycode, record);
 }
+#endif

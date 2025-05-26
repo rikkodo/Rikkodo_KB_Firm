@@ -216,7 +216,9 @@ report_mouse_t rkd_pointing_device_task_user(report_mouse_t mouse_report)
     return mouse_report;
 }
 
+#ifdef RKD_USE_DEFAULT_CUSTOM_MOUSE
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report)
 {
     return rkd_pointing_device_task_user(mouse_report);
 }
+#endif
