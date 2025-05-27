@@ -37,10 +37,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     // clang-format off
     [0] = {
-        ENCODER_CCW_CW(KC_BSPC, KC_TAB),
+        ENCODER_CCW_CW(RE_BS_BACKTAB, RE_SP_TAB),
     },
     [1] = {
-        ENCODER_CCW_CW(KC_BSPC, KC_TAB),
+        ENCODER_CCW_CW(RE_BS_BACKTAB, RE_SP_TAB),
     },
     [2] = {
         ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
