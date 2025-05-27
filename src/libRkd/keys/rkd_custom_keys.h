@@ -21,6 +21,8 @@ enum custom_keycodes
     GRAVE_TILDA,   // 0x7EAA `/~ | S([)/S(=)
     RE_BS_BACKTAB, // 0x7EAB Mod: BS/S(Tab)
     RE_SP_TAB,     // 0x7EAC Mod: SP/Tab
+    RE_LEFT_UP,    // 0x7EAD ←|↑
+    RE_RIGHT_DOWN, // 0x7EAE →|↓
 
     // QK_USER_MAX                    = 0x7FFF
 };

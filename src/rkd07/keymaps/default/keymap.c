@@ -46,7 +46,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
     },
     [3] = {
-        ENCODER_CCW_CW(KC_LEFT, KC_RGHT),
+        ENCODER_CCW_CW(RE_LEFT_UP, RE_RIGHT_DOWN),
     },
     // clang-format on
 };
