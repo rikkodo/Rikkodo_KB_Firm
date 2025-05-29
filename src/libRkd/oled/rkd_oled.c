@@ -30,6 +30,7 @@ bool oled_state_info(void)
     uint8_t modifiers = get_mods();
     led_t led_state = host_keyboard_led_state();
     const char *n;
+    bool l = false;
 
     // Layer
     switch (get_highest_layer(layer_state | default_layer_state))
@@ -45,13 +46,14 @@ bool oled_state_info(void)
         break;
     case 3:
         n = PSTR(LAYER_THREE_NAME);
+        l = true;
         break;
     default:
         n = PSTR("Undefined");
         break;
     }
     oled_write_P(PSTR("Layer: "), false);
-    oled_write_P(n, false);
+    oled_write_P(n, l);
     oled_advance_page(true);
 
     // led status
