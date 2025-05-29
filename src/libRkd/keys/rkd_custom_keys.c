@@ -38,129 +38,6 @@ static void _process_fake_keys(uint16_t key_without_shift, bool shift_without_sh
     }
 }
 
-/**
- * @brief いずれかのModifierが押下されているか否かを返す
- *
- * @return true Yes
- * @return false No
- */
-static bool _isAnyMod(void)
-{
-    return (keyboard_report->mods &
-            (MOD_BIT(KC_LGUI) | MOD_BIT(KC_RGUI) |
-             MOD_BIT(KC_LALT) | MOD_BIT(KC_RALT) |
-             MOD_BIT(KC_LCTL) | MOD_BIT(KC_RCTL)));
-}
-
-/**
- * @brief  RE_BS_BACKTABの処理
- *
- * @par MODキーが押下されており、Shiftが押下されている場合:  MOD+LEFT<br>
- *      MODキーが押下されており、Shiftが押下されていない場合: MOD+Shift+Tab<br>
- *      MODキーが押下されておらず、Shiftが押下されている場合: Shift+Space<br>
- *      MODキーが押下されておらず、Shiftが押下されていない場合: BS<br>
- *
- */
-static void _process_RE_BS_BACKTAB(void)
-{
-    bool lshift = keyboard_report->mods & MOD_BIT(KC_LSFT); // 左シフトが押されているかどうか
-    bool rshift = keyboard_report->mods & MOD_BIT(KC_RSFT); // 右シフトが押されているかどうか
-    if (_isAnyMod())
-    {
-        // Modキーあり
-        if (lshift || rshift)
-        {
-            // シフトあり
-            if (lshift)
-                unregister_code(KC_LSFT);
-            if (rshift)
-                unregister_code(KC_RSFT);
-            tap_code16(KC_LEFT);
-            if (lshift)
-                register_code(KC_LSFT);
-            if (rshift)
-                register_code(KC_RSFT);
-        }
-        else
-        {
-            register_code(KC_LSFT);
-            tap_code16(KC_TAB);
-            unregister_code(KC_LSFT);
-        }
-    }
-    else
-    {
-        // Modキーなし
-        if (lshift || rshift)
-        {
-            // シフトあり
-            tap_code16(KC_SPC);
-        }
-        else
-        {
-            // シフトなし
-            tap_code16(KC_BSPC);
-        }
-    }
-}
-/**
- * @brief  RE_SP_TABの処理
- *
- * @par MODキーが押下されており、Shiftが押下されている場合: MOD + RIGHT (Shiftは外す)<br>
- *      MODキーが押下されており、Shiftが押下されていない場合: MOD + Tab<br>
- *      MODキーが押下されておらず、Shiftが押下されている場合: Enter (Shftは外す)<br>
- *      MODキーが押下されておらず、Shiftが押下されていない場合: Space<br>
- *
- */
-static void _process_RE_SP_TAB(void)
-{
-    bool lshift = keyboard_report->mods & MOD_BIT(KC_LSFT); // 左シフトが押されているかどうか
-    bool rshift = keyboard_report->mods & MOD_BIT(KC_RSFT); // 右シフトが押されているかどうか
-    if (_isAnyMod())
-    {
-        // Modキーあり
-        if (lshift || rshift)
-        {
-            // シフトあり
-            if (lshift)
-                unregister_code(KC_LSFT);
-            if (rshift)
-                unregister_code(KC_RSFT);
-            tap_code16(KC_RIGHT);
-            if (lshift)
-                register_code(KC_LSFT);
-            if (rshift)
-                register_code(KC_RSFT);
-        }
-        else
-        {
-            tap_code16(KC_TAB);
-        }
-    }
-    else
-    {
-        // Modキーなし
-        if (lshift || rshift)
-        {
-            if (lshift)
-                unregister_code(KC_LSFT);
-            if (rshift)
-                unregister_code(KC_RSFT);
-            // シフトあり
-            tap_code16(KC_ENT);
-            if (lshift)
-                register_code(KC_LSFT);
-            if (rshift)
-                register_code(KC_RSFT);
-        }
-        else
-        {
-            // シフトなし
-            tap_code16(KC_SPC);
-        }
-    }
-}
-
 bool rkd_process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     if (record->event.pressed)
@@ -202,10 +79,10 @@ bool rkd_process_record_user(uint16_t keycode, keyrecord_t *record)
             _process_fake_keys(KC_LBRC, true, KC_EQL, true);
             return false;
         case RE_BS_BACKTAB:
-            _process_RE_BS_BACKTAB();
+            _process_fake_keys(KC_BSPC, false, KC_TAB, true);
             return false;
         case RE_SP_TAB:
-            _process_RE_SP_TAB();
+            _process_fake_keys(KC_SPC, false, KC_TAB, false);
             return false;
         case RE_LEFT_UP:
             _process_fake_keys(KC_LEFT, false, KC_UP, false);
