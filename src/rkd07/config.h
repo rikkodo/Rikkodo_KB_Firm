@@ -7,7 +7,6 @@
 #define I2C_DRIVER I2CD1
 
 #define MOUSE_FIXED_SCROLL_LAYER (3)
-#define MOUSE_FIXED_INVERT_X (false)
 #define MOUSE_FIXED_ORTH_SCROLL (false)
 
 #define RKD_USE_DEFAULT_CUSTOM_KEYS

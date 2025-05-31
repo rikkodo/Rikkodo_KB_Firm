@@ -3,7 +3,7 @@ set -Ceux
 
 
 KB="rkd/rkd07"
-MODEL="picot rpi/nogikesu"
+MODEL="picot rpi/nogikesu rpi/pimoroni"
 # "rpi/usakey rpi/az1uball rpi/stickpointv"
 TARGET="default via"
 TYPE="uf2"
@@ -35,4 +35,3 @@ done
 wait
 
 popd
-

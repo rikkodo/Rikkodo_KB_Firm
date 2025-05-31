@@ -6,7 +6,4 @@
 #define PAW3222_SCLK_PIN GP0
 #define PAW3222_SDIO_PIN GP1
 
-// TODO
-// #define MOUSE_FIXED_THETA (90)
-// #define MOUSE_FIXED_PHY (180)
-// #define MOUSE_FIXED_SCRDIV (60)
+#define MOUSE_FIXED_INVERT_X (true)

@@ -10,3 +10,4 @@
 #define MOUSE_FIXED_THETA (90)
 #define MOUSE_FIXED_PHY (180)
 #define MOUSE_FIXED_SCRDIV (60)
+#define MOUSE_FIXED_INVERT_X (false)
