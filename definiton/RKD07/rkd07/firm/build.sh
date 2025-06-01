@@ -3,9 +3,9 @@ set -Ceux
 
 
 KB="rkd/rkd07"
-MODEL="picot rpi/nogikesu rpi/pimoroni"
-# "rpi/usakey rpi/az1uball rpi/stickpointv"
-TARGET="default via"
+MODEL="picot rpi/nogikesu rpi/az1uball rpi/stickpoint"
+TARGET="via"
+# "default"
 TYPE="uf2"
 
 QMK="${HOME}/qmk_firmware"
