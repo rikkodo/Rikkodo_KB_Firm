@@ -45,7 +45,7 @@ bool azoteq_iqs7211e_is_ready(void) {
 
 void azoteq_iqs7211e_wait_for_ready(uint16_t timeout_ms) {
     if (!azoteq_iqs7211e_use_ready_pin) {
-        wait_ms(timeout_ms);
+        // wait_ms(timeout_ms);
         return; // No RDY pin configured, return immediately
     }
 
@@ -498,16 +498,20 @@ bool azoteq_iqs7211e_read_ati_active(void) {
 void azoteq_iqs7211e_init(void) {
     i2c_init();
 
-    // Initialize RDY pin if configured
-    // if (AZOTEQ_IQS7211E_RDY_PIN != NO_PIN) {
-    //     setPinInputHigh(AZOTEQ_IQS7211E_RDY_PIN);
-    //     azoteq_iqs7211e_use_ready_pin = true;
-    //     dprintf("IQS7211E: RDY pin configured on pin %d\n", AZOTEQ_IQS7211E_RDY_PIN);
-    // } else {
-    //     azoteq_iqs7211e_use_ready_pin = false;
-    //     dprintf("IQS7211E: No RDY pin configured\n");
-    // }
+#ifdef NO_USE_READY_PIN
+    dprintf("IQS7211E: NO_USE_READY_PIN\n");
     azoteq_iqs7211e_use_ready_pin = false;
+#else
+    Initialize RDY pin if configured
+    if (AZOTEQ_IQS7211E_RDY_PIN != NO_PIN) {
+        setPinInputHigh(AZOTEQ_IQS7211E_RDY_PIN);
+        azoteq_iqs7211e_use_ready_pin = true;
+        dprintf("IQS7211E: RDY pin configured on pin %d\n", AZOTEQ_IQS7211E_RDY_PIN);
+    } else {
+        azoteq_iqs7211e_use_ready_pin = false;
+        dprintf("IQS7211E: No RDY pin configured\n");
+    }
+#endif
 
 
     debug_enable = true;
@@ -589,13 +593,15 @@ report_mouse_t azoteq_iqs7211e_get_report(report_mouse_t mouse_report) {
     static bool     double_tap_hold = false;
     static bool     is_clicking = false;
     static uint8_t  pending_click_release = 0;
-//     static uint8_t  wait = 0;
-// 
-//     if (wait < 60) {
-//         wait++;
-//         return temp_report;
-//     }
-//     wait = 0;
+#ifdef NO_USE_READY_PIN
+    static uint16_t  wait = 0;
+
+    if (wait < 100) {
+        wait++;
+        return temp_report;
+    }
+    wait = 0;
+#endif
 
     if (azoteq_iqs7211e_init_status == I2C_STATUS_SUCCESS) {
         // Only read data if device is ready or if no RDY pin is configured
@@ -753,6 +759,7 @@ report_mouse_t azoteq_iqs7211e_get_report(report_mouse_t mouse_report) {
         }
     } else {
         dprintf("IQS7211E: Init failed, i2c status: %d, %d\n", azoteq_iqs7211e_init_status, azoteq_iqs7211e_product_number);
+        azoteq_iqs7211e_init();
     }
 
     return temp_report;
