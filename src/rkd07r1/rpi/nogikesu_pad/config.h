@@ -6,5 +6,5 @@
 #define DEBUG_PRINT
 
 // #define MOUSE_FIXED_INVERT_X (false)
-// #define MOUSE_FIXED_THETA (270)
-// #define MOUSE_FIXED_PHY (180)
+#define MOUSE_FIXED_THETA (270)
+#define MOUSE_FIXED_PHY (180)
