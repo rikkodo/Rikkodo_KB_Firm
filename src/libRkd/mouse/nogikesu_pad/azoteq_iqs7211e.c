@@ -589,13 +589,13 @@ report_mouse_t azoteq_iqs7211e_get_report(report_mouse_t mouse_report) {
     static bool     double_tap_hold = false;
     static bool     is_clicking = false;
     static uint8_t  pending_click_release = 0;
-    static uint8_t  wait = 0;
-
-    if (wait < 60) {
-        wait++;
-        return temp_report;
-    }
-    wait = 0;
+//     static uint8_t  wait = 0;
+// 
+//     if (wait < 60) {
+//         wait++;
+//         return temp_report;
+//     }
+//     wait = 0;
 
     if (azoteq_iqs7211e_init_status == I2C_STATUS_SUCCESS) {
         // Only read data if device is ready or if no RDY pin is configured

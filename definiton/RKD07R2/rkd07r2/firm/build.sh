@@ -2,8 +2,8 @@
 set -Ceux
 
 
-KB="rkd/rkd07r1"
-MODEL="rpi/stickpoint"
+KB="rkd/rkd07r2"
+MODEL="rpi/nogikesu_pad"
 TARGET="via"
 # "default"
 TYPE="uf2"
