@@ -1,0 +1,75 @@
+{
+    "manufacturer": "rikkodo",
+    "keyboard_name": "rkd10",
+    "maintainer": "rikkodo",
+    "development_board": "promicro",
+    "features": {
+        "bootmagic": true,
+        "command": false,
+        "space_cadet": false,
+        "console": false,
+        "extrakey": false,
+        "mousekey": true,
+        "rgblight": true,
+        "nkro": false,
+        "encoder": true
+    },
+    "matrix_pins": {
+        "direct": [
+            [
+                "D4"
+            ]
+        ]
+    },
+    "rgblight": {
+        "led_count": 1,
+        "animations": {
+            "alternating": true,
+            "breathing": true,
+            "christmas": true,
+            "knight": true,
+            "rainbow_mood": true,
+            "rgb_test": true,
+            "sname": true,
+            "static_gradient": true,
+            "twinkle": true
+        },
+        "hue_steps": 4,
+        "saturation_steps": 4,
+        "brightness_steps": 8,
+        "sleep": false,
+        "max_brightness": 255
+    },
+    "ws2812": {
+        "pin": "F4"
+    },
+    "encoder": {
+        "rotary": [
+            {
+                "pin_a": "D3",
+                "pin_b": "D2",
+                "resolution": 4
+            }
+        ]
+    },
+    "url": "",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x000A",
+        "vid": "0xE814"
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {
+                    "matrix": [
+                        0,
+                        0
+                    ],
+                    "x": 0,
+                    "y": 0
+                }
+            ]
+        }
+    }
+}
