@@ -1,0 +1,13 @@
+#pragma once
+
+/* pmw3610用定義 */
+
+#define PMW3610_CS_PIN NO_PIN
+#define PMW3610_MOTION_PIN GP3
+#define PMW3610_SCLK_PIN GP2
+#define PMW3610_SDIO_PIN GP0
+
+#define MOUSE_FIXED_THETA (0)
+#define MOUSE_FIXED_PHY (90)
+#define MOUSE_FIXED_SCRDIV (60)
+#define MOUSE_FIXED_INVERT_X (false)

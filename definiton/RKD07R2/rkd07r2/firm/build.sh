@@ -3,7 +3,7 @@ set -Ceux
 
 
 KB="rkd/rkd07r2"
-MODEL="rpi/nogikesu_pad"
+MODEL="rpi/nogikesu_pad rpi/pmw3610 rpi/pmw3360"
 TARGET="via"
 # "default"
 TYPE="uf2"
