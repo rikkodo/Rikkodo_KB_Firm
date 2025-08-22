@@ -3,7 +3,7 @@ set -Ceux
 
 
 KB="rkd/rkd07"
-MODEL="picot rpi/nogikesu rpi/az1uball rpi/stickpoint"
+MODEL="picot rpi/nogikesu_paw3222 rpi/az1uball rpi/stickpoint"
 TARGET="via"
 # "default"
 TYPE="uf2"

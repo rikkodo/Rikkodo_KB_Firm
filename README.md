@@ -10,15 +10,15 @@
 
 [killerwhale](https://github.com/Taro-Hayashi/qmk_firmware/tree/tarohayashi/keyboards/tarohayashi/killerwhale)
 
-### libRkd/mouse/nogikesu
+### libRkd/mouse/nogikesu_paw3222
 
 paw3222用のファームウェア
 
 [qmk-driver-paw3222](https://github.com/sekigon-gonnoc/qmk-driver-paw3222)
 
-### libRkd/mouse/nogikesu_pad
+### libRkd/mouse/nogikesu_iqs7211e
 
-iqs7211y用のファームウェア
+iqs7211e用のファームウェア
 
 [iqs7211e-trackpad-module](https://github.com/sekigon-gonnoc/iqs7211e-trackpad-module/tree/main/qmk_firmware)
 
