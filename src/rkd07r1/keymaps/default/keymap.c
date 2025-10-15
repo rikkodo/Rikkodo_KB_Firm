@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_CAPS,        KC_PGUP, KC_UP,   KC_PGDN,               KC_HOME, KC_PSLS,                                   KC_7,     KC_8,      KC_9,       KC_PSCR,   KC_SCRL,   KC_PAUS,   KC_RSFT,  KC_APP,
         KC_TRNS,        KC_LEFT, KC_DOWN, KC_RGHT,               KC_END,  KC_PAST,                                   KC_4,     KC_5,      KC_6,       KC_INS,    KC_HOME,   KC_PGUP,             KC_ENT,
         KC_LSFT,        TG(1),   KC_LNUM, KC_PPLS,               KC_PMNS, KC_PDOT,                                   KC_1,     KC_2,      KC_3,       KC_DEL,    KC_END,    KC_PGDN,   KC_UP,    KC_RCTL,
-        KC_LCTL,        KC_LALT, KC_LGUI, KC_LNG1,               KC_LNG2, KC_MS_BTN2, KC_MS_BTN3, KC_TRANS,          KC_0,     KC_DOT,                KC_RGUI,   KC_RALT,   KC_LEFT,   KC_DOWN,  KC_RGHT
+        KC_LCTL,        KC_LALT, KC_LGUI, KC_LNG1,               KC_LNG2, KC_MS_BTN2, KC_MS_BTN3, KC_TRNS,           KC_0,     KC_DOT,                KC_RGUI,   KC_RALT,   KC_LEFT,   KC_DOWN,  KC_RGHT
     ),
     // clang-format on
 };
