@@ -11,3 +11,5 @@
 #define MOUSE_FIXED_PHY (90)
 #define MOUSE_FIXED_SCRDIV (60)
 #define MOUSE_FIXED_INVERT_X (false)
+
+#define DEBUG_PRINT

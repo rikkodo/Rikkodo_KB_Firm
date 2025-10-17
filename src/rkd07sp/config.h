@@ -2,6 +2,8 @@
 
 /* RKD07SPに共通の機能*/
 
+#define EE_HANDS
+
 #define SERIAL_USART_FULL_DUPLEX
 #define SERIAL_USART_DRIVER SIOD0
 
