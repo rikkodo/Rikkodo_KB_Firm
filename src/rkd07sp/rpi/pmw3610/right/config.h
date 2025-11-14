@@ -2,3 +2,8 @@
 
 #define SERIAL_USART_TX_PIN GP17
 #define SERIAL_USART_RX_PIN GP16
+
+#define MOUSE_FIXED_THETA (0)
+#define MOUSE_FIXED_PHY (90)
+#define MOUSE_FIXED_SCRDIV (60)
+#define MOUSE_FIXED_INVERT_X (false)
